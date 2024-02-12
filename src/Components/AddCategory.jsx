@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const AddCategory = ({onNewCategory}) => {
   
   //Hook para controlar el valor que se está colocando en el
   //input
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState('');
 
   //Recoge el evento de cambio en el input y toma al mismo (al 
   //txt/input) como el "target". De el se obtiene el valor para
@@ -27,13 +28,17 @@ export const AddCategory = ({onNewCategory}) => {
   }
   
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} aria-label='form'>
         <input
             type="text"
             placeholder="Buscar gifs"
-            value={inputValue || ''}
+            value={inputValue}
             onChange={onInputChange}
         />
     </form>
   )
+}
+
+AddCategory.propTypes = {
+  onNewCategory: PropTypes.func.isRequired
 }

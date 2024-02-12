@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 export const getGifs = async(category) =>{
 
     //link... &q = query: lo que se quiere buscar
